@@ -1,6 +1,6 @@
 {
     "logo": {
-        "url": "/images/logo_tbw.png",
+        "url": "/images/logo_tbw.jpeg",
         "altText": "The Bloom Way Logo",
         "styles": {
             "self": {
@@ -11,15 +11,7 @@
     },
     "primaryLinks": [
         {
-            "label": "Home",
-            "url": "/",
-            "icon": "arrowRight",
-            "iconPosition": "right",
-            "style": "secondary",
-            "type": "Link"
-        },
-        {
-            "label": "Leistungen",
+            "label": "Services",
             "url": "/services",
             "icon": "arrowRight",
             "iconPosition": "right",
@@ -27,8 +19,8 @@
             "type": "Link"
         },
         {
-            "label": "Kontakt",
-            "altText": "Kontakt",
+            "label": "Contact",
+            "altText": "Contact",
             "url": "/contact",
             "icon": "arrowRight",
             "iconPosition": "right",
@@ -38,8 +30,8 @@
     ],
     "secondaryLinks": [
         {
-            "label": "Beratung anfragen",
-            "altText": "Beratung anfragen",
+            "label": "Get in Touch",
+            "altText": "Get in Touch",
             "url": "/contact",
             "icon": "arrowRight",
             "iconPosition": "right",

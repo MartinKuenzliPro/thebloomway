@@ -1,6 +1,6 @@
 ---
 title: Home
-slug: /
+slug: /en
 sections:
   - type: GenericSection
     title:
@@ -9,21 +9,22 @@ sections:
       type: TitleBlock
     subtitle: The Bloom Way · We Bloom It
     text: >
-      Eine Boutique-Agentur spezialisiert auf Talent Management, Content Creation
-      und Social Media Management für Marken und Unternehmen. Mit Sitz in der Schweiz.
+      A boutique creative agency specializing in talent management, content
+      creation, and social media management for brands and businesses. Based in
+      Switzerland.
     actions:
-      - label: Beratung anfragen
+      - label: Get in Touch
         altText: ''
-        url: /contact
+        url: /en/contact
         showIcon: false
         icon: arrowRight
         iconPosition: right
         style: primary
         elementId: ''
         type: Button
-      - label: Unsere Leistungen
+      - label: Our Services
         altText: ''
-        url: /services
+        url: /en/services
         showIcon: true
         icon: arrowRight
         iconPosition: right
@@ -52,18 +53,18 @@ sections:
           - pr-16
   - type: GenericSection
     title:
-      text: Über uns
+      text: About Us
       color: text-dark
       type: TitleBlock
-    subtitle: Boutique Content & Talent Agentur · Einsiedeln, Schweiz
+    subtitle: Boutique Content & Talent Agency · Einsiedeln, Switzerland
     text: >
-      The Bloom Way ist eine Boutique Content- und Talent-Agentur mit Sitz in der
-      Schweiz. Spezialisiert auf Content Creation, Talent Representation und
-      digitale Präsenzentwicklung – für Marken, Unternehmen und ausgewählte
-      Talente. Unser Ansatz ist bewusst, verfeinert und ergebnisorientiert.
+      The Bloom Way is a boutique content and talent agency based in Switzerland.
+      We specialize in content creation, talent representation, and digital
+      presence development for brands, businesses, and selected talents.
+      Our approach is intentional, refined, and results-driven.
     actions:
-      - label: Kontakt aufnehmen
-        url: /contact
+      - label: Get in touch
+        url: /en/contact
         icon: arrowRight
         iconPosition: right
         style: secondary
@@ -73,7 +74,7 @@ sections:
       altText: The Bloom Way Team
       type: ImageBlock
     badge:
-      label: Über uns
+      label: About Us
       color: text-primary
       type: Badge
     colors: bg-light-fg-dark
@@ -88,24 +89,24 @@ sections:
           - pr-16
   - type: FeaturedItemsSection
     title:
-      text: Was wir für dich tun
+      text: What we do for you
       color: text-dark
       styles:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Unsere Kernleistungen
+    subtitle: Our core services
     badge:
-      label: Leistungen
+      label: Services
       color: text-primary
       type: Badge
     items:
       - type: FeaturedItem
         title: Talent Management
         text: >-
-          Wir vertreten ausgewählte Talente – und managen Markenkooperationen,
-          Hotelpartnerschaften und kuratierte Kampagnen, die ihrer Identität
-          entsprechen und ihre Präsenz stärken.
+          We represent selected talents – managing brand collaborations, hotel
+          partnerships, and curated campaigns that align with their identity and
+          elevate their presence.
         image:
           type: ImageBlock
           altText: Talent Management
@@ -128,9 +129,9 @@ sections:
             textAlign: center
       - title: Content Creation
         text: >-
-          Wir erstellen hochwertige Fotos und Videos für Unternehmen. Von der
-          Planung bis zur Produktion – jeder Inhalt widerspiegelt die
-          Markenidentität und konvertiert das Publikum.
+          We create high-quality photos and videos for businesses. From planning
+          to production, every piece of content is crafted to reflect the brand's
+          identity and convert audiences.
         image:
           url: /images/tbw-23.jpeg
           altText: Content Creation
@@ -154,8 +155,8 @@ sections:
         type: FeaturedItem
       - title: Social Media Management
         text: >-
-          Wir übernehmen die vollständige Instagram-Präsenz von Unternehmen –
-          Strategie, Content-Kalender, Posting und Community Management.
+          We manage the complete Instagram presence of businesses – strategy,
+          content calendar, posting, and community management.
         image:
           url: /images/tbw-24.jpeg
           altText: Social Media Management
@@ -193,13 +194,13 @@ sections:
       text: Ready to elevate your brand?
       color: text-dark
       type: TitleBlock
-    subtitle: Erstberatung
+    subtitle: Initial Consultation
     text: |-
-      Finden wir gemeinsam heraus, wie wir Ihre Marke zum Strahlen bringen.
-      Unverbindlich und persönlich.
+      Let's find out together how we can make your brand shine.
+      No commitment required.
     actions:
-      - label: Jetzt starten
-        url: /contact
+      - label: Get started
+        url: /en/contact
         icon: arrowRight
         iconPosition: right
         style: primary
@@ -209,7 +210,7 @@ sections:
       altText: Ready to elevate your brand
       type: ImageBlock
     badge:
-      label: Kontakt
+      label: Contact
       color: text-primary
       type: Badge
     colors: bg-light-fg-dark
@@ -224,34 +225,34 @@ sections:
           - pr-16
     type: GenericSection
   - title:
-      text: Kontakt aufnehmen
+      text: Get in touch
       color: text-dark
       type: TitleBlock
-    subtitle: Erstberatung
+    subtitle: Initial Consultation
     text: |-
-      Finden wir gemeinsam heraus, wie wir Ihre Marke zum Strahlen bringen.
-      Unverbindlich und persönlich.
-      contact@thebloomway.ch · Einsiedeln, Schweiz
+      Let's find out together how we can make your brand shine.
+      No commitment required.
+      contact@thebloomway.ch · Einsiedeln, Switzerland
     media:
       fields:
         - name: name
           label: Name
           hideLabel: true
-          placeholder: Ihr Name
+          placeholder: Your name
           isRequired: true
           width: full
           type: TextFormControl
         - name: email
           label: Email
           hideLabel: true
-          placeholder: Ihre E-Mail
+          placeholder: Your email
           isRequired: true
           width: full
           type: EmailFormControl
         - name: message
           label: Message
           hideLabel: true
-          placeholder: Erzählen Sie uns von Ihrer Marke oder Ihrem Projekt
+          placeholder: Tell us about your brand or project
           width: full
           type: TextareaFormControl
       elementId: contact-form
@@ -269,14 +270,14 @@ sections:
       type: FormBlock
       submitButton:
         type: SubmitButtonFormControl
-        label: Nachricht senden
+        label: Send message
         showIcon: false
         icon: arrowRight
         iconPosition: right
         style: primary
         elementId: null
     badge:
-      label: Kontakt
+      label: Contact
       color: text-primary
       type: Badge
     colors: bg-light-fg-dark
@@ -289,8 +290,8 @@ sections:
           - pr-16
     type: GenericSection
 seo:
-  metaTitle: The Bloom Way – Boutique Content & Talent Agentur Schweiz
-  metaDescription: The Bloom Way ist eine Boutique Content & Talent Agentur in Einsiedeln, Schweiz. Talent Management, Content Creation und Social Media Management für Marken und Unternehmen.
+  metaTitle: The Bloom Way – Boutique Creative Agency · Switzerland
+  metaDescription: The Bloom Way is a boutique content and talent agency based in Switzerland. Talent Management, Content Creation and Social Media Management.
   socialImage: /images/tbw-22.jpeg
   type: Seo
 type: PageLayout

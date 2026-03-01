@@ -3,6 +3,59 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
+// Maps German paths to English equivalents and vice versa
+const EN_LINKS = {
+    primaryLinks: [
+        { label: 'Home', url: '/en', style: 'secondary', type: 'Link', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Link' } },
+        { label: 'Services', url: '/en/services', style: 'secondary', type: 'Link', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Link' } },
+        { label: 'Contact', url: '/en/contact', style: 'secondary', type: 'Link', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Link' } }
+    ],
+    secondaryLinks: [
+        { label: 'Get in Touch', url: '/en/contact', style: 'primary', type: 'Button', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Button' } }
+    ]
+};
+
+function useIsEnglish() {
+    const router = useRouter();
+    return router.asPath.startsWith('/en') || router.pathname.startsWith('/en');
+}
+
+function LanguageSwitcher() {
+    const router = useRouter();
+    const isEn = useIsEnglish();
+
+    const switchLanguage = () => {
+        if (isEn) {
+            const dePath = router.asPath.replace(/^\/en/, '') || '/';
+            router.push(dePath);
+        } else {
+            const enPath = '/en' + (router.asPath === '/' ? '' : router.asPath);
+            router.push(enPath);
+        }
+    };
+
+    return (
+        <div className="flex items-center ml-4 border border-current rounded-full overflow-hidden text-sm font-medium shrink-0">
+            <button
+                onClick={switchLanguage}
+                disabled={!isEn}
+                className={classNames('px-3 py-1 transition-colors duration-150', !isEn ? 'bg-dark text-light' : 'opacity-50 hover:opacity-80')}
+                aria-label="Deutsch"
+            >
+                DE
+            </button>
+            <button
+                onClick={switchLanguage}
+                disabled={isEn}
+                className={classNames('px-3 py-1 transition-colors duration-150', isEn ? 'bg-dark text-light' : 'opacity-50 hover:opacity-80')}
+                aria-label="English"
+            >
+                EN
+            </button>
+        </div>
+    );
+}
+
 import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
 import { Link, Action } from '../../atoms';
 import ImageBlock from '../../blocks/ImageBlock';
@@ -18,7 +71,7 @@ export default function Header(props) {
                 'sb-component',
                 'sb-component-header',
                 colors,
-                'relative',
+                'sticky top-0',
                 'shadow-header',
                 styles?.self?.margin ? mapStyles({ padding: styles?.self?.margin }) : undefined,
                 styles?.self?.padding ? mapStyles({ padding: styles?.self?.padding }) : 'p-4',
@@ -71,6 +124,7 @@ function HeaderLogoLeftPrimaryLeft(props) {
                     <ListOfLinks links={secondaryLinks} enableAnnotations={enableAnnotations} />
                 </ul>
             )}
+            <div className="hidden lg:flex"><LanguageSwitcher /></div>
             {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
@@ -78,27 +132,32 @@ function HeaderLogoLeftPrimaryLeft(props) {
 
 function HeaderLogoLeftPrimaryCentered(props) {
     const { title, logo, primaryLinks = [], secondaryLinks = [], colors = 'bg-light-fg-dark', enableAnnotations } = props;
+    const isEn = useIsEnglish();
+    const activePrimary = isEn ? EN_LINKS.primaryLinks : primaryLinks;
+    const activeSecondary = isEn ? EN_LINKS.secondaryLinks : secondaryLinks;
+    const logoHref = isEn ? '/en' : '/';
     return (
         <div className="relative flex items-center">
             {(title || logo?.url) && (
                 <div className="mr-10">
-                    <SiteLogoLink title={title} logo={logo} enableAnnotations={enableAnnotations} />
+                    <SiteLogoLink title={title} logo={logo} enableAnnotations={enableAnnotations} href={logoHref} />
                 </div>
             )}
-            {primaryLinks.length > 0 && (
+            {activePrimary.length > 0 && (
                 <ul
                     className="absolute hidden w-auto -translate-x-1/2 -translate-y-1/2 lg:flex lg:items-center gap-x-10 left-1/2 top-1/2"
                     {...(enableAnnotations && { 'data-sb-field-path': 'primaryLinks' })}
                 >
-                    <ListOfLinks links={primaryLinks} colors={colors} enableAnnotations={enableAnnotations} />
+                    <ListOfLinks links={activePrimary} colors={colors} enableAnnotations={enableAnnotations} />
                 </ul>
             )}
-            {secondaryLinks.length > 0 && (
+            {activeSecondary.length > 0 && (
                 <ul className="hidden lg:flex lg:items-center ml-auto gap-x-2.5" {...(enableAnnotations && { 'data-sb-field-path': 'secondaryLinks' })}>
-                    <ListOfLinks links={secondaryLinks} enableAnnotations={enableAnnotations} />
+                    <ListOfLinks links={activeSecondary} enableAnnotations={enableAnnotations} />
                 </ul>
             )}
-            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
+            <div className="hidden lg:flex"><LanguageSwitcher /></div>
+            {(activePrimary.length > 0 || activeSecondary.length > 0) && <MobileMenu {...props} primaryLinks={activePrimary} secondaryLinks={activeSecondary} />}
         </div>
     );
 }
@@ -234,15 +293,18 @@ function MobileMenu(props) {
                             <ListOfLinks links={secondaryLinks} enableAnnotations={enableAnnotations} inMobileMenu />
                         </ul>
                     )}
+                    <div className="mt-6">
+                        <LanguageSwitcher />
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-function SiteLogoLink({ title, logo, enableAnnotations }) {
+function SiteLogoLink({ title, logo, enableAnnotations, href = '/' }) {
     return (
-        <Link href="/" className="flex items-center">
+        <Link href={href} className="flex items-center">
             {logo && <ImageBlock {...logo} {...(enableAnnotations && { 'data-sb-field-path': 'logo' })} />}
             {title && (
                 <span className="h4" {...(enableAnnotations && { 'data-sb-field-path': 'title' })}>

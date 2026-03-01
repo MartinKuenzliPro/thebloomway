@@ -1,25 +1,59 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
 import { Social, Action, Link } from '../../atoms';
 import ImageBlock from '../../blocks/ImageBlock';
 
+const EN_FOOTER = {
+    text: 'Instagram Marketing Agency for Swiss SMEs. More reach, more clients, sustainable growth.',
+    primaryLinks: {
+        title: 'Services',
+        type: 'FooterLinksGroup',
+        links: [
+            { label: 'Instagram Strategy', url: '/en/services', icon: 'arrowRight', iconPosition: 'right', style: 'secondary', type: 'Link' },
+            { label: 'Content Creation', url: '/en/services', icon: 'arrowRight', iconPosition: 'right', style: 'secondary', type: 'Link' },
+            { label: 'Influencer Marketing', url: '/en/services', icon: 'arrowRight', iconPosition: 'right', style: 'secondary', type: 'Link' }
+        ]
+    },
+    secondaryLinks: {
+        title: 'Company',
+        type: 'FooterLinksGroup',
+        links: [
+            { label: 'Contact', url: '/en/contact', icon: 'arrowRight', iconPosition: 'right', style: 'secondary', type: 'Link' }
+        ]
+    },
+    legalLinks: [
+        { label: 'Legal Notice', url: '/en/impressum', icon: 'arrowRight', iconPosition: 'right', style: 'secondary', type: 'Link' },
+        { label: 'Terms & Conditions', url: '/en/agb', icon: 'arrowRight', iconPosition: 'right', style: 'secondary', type: 'Link' }
+    ],
+    copyrightText: '© 2025 The Bloom Way. All rights reserved.'
+};
+
+function useIsEnglish() {
+    const router = useRouter();
+    return router.asPath.startsWith('/en') || router.pathname.startsWith('/en');
+}
+
 export default function Footer(props) {
+    const isEn = useIsEnglish();
     const {
         colors = 'bg-light-fg-dark',
         logo,
         title,
-        text,
-        primaryLinks,
-        secondaryLinks,
         socialLinks = [],
-        legalLinks = [],
-        copyrightText,
         styles = {},
         enableAnnotations
     } = props;
+
+    const text = isEn ? EN_FOOTER.text : props.text;
+    const primaryLinks = isEn ? EN_FOOTER.primaryLinks : props.primaryLinks;
+    const secondaryLinks = isEn ? EN_FOOTER.secondaryLinks : props.secondaryLinks;
+    const legalLinks = isEn ? EN_FOOTER.legalLinks : (props.legalLinks ?? []);
+    const copyrightText = isEn ? EN_FOOTER.copyrightText : props.copyrightText;
+    const logoHref = isEn ? '/en' : '/';
     return (
         <footer
             className={classNames(
@@ -36,7 +70,7 @@ export default function Footer(props) {
                     {(logo?.url || title || text) && (
                         <div className="pb-8 sm:col-span-3 lg:col-auto">
                             {(logo?.url || title) && (
-                                <Link href="/" className="flex flex-col items-start">
+                                <Link href={logoHref} className="flex flex-col items-start">
                                     {logo && (
                                         <ImageBlock {...logo} className="inline-block w-auto" {...(enableAnnotations && { 'data-sb-field-path': 'logo' })} />
                                     )}
