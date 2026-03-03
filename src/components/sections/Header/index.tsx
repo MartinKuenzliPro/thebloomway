@@ -10,14 +10,22 @@ const EN_LINKS = {
         { label: 'Services', url: '/en/services', style: 'secondary', type: 'Link', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Link' } },
         { label: 'Contact', url: '/en/contact', style: 'secondary', type: 'Link', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Link' } }
     ],
-    secondaryLinks: [
-        { label: 'Get in Touch', url: '/en/contact', style: 'primary', type: 'Button', icon: 'arrowRight', iconPosition: 'right', __metadata: { modelName: 'Button' } }
-    ]
+    secondaryLinks: []
 };
 
 function useIsEnglish() {
     const router = useRouter();
-    return router.asPath.startsWith('/en') || router.pathname.startsWith('/en');
+    const [isEn, setIsEn] = useState(
+        router.asPath.startsWith('/en') || router.pathname.startsWith('/en')
+    );
+
+    useEffect(() => {
+        const update = (url: string) => setIsEn(url.startsWith('/en'));
+        router.events.on('routeChangeComplete', update);
+        return () => router.events.off('routeChangeComplete', update);
+    }, [router.events]);
+
+    return isEn;
 }
 
 function LanguageSwitcher() {
@@ -27,10 +35,10 @@ function LanguageSwitcher() {
     const switchLanguage = () => {
         if (isEn) {
             const dePath = router.asPath.replace(/^\/en/, '') || '/';
-            router.push(dePath);
+            router.replace(dePath);
         } else {
             const enPath = '/en' + (router.asPath === '/' ? '' : router.asPath);
-            router.push(enPath);
+            router.replace(enPath);
         }
     };
 
@@ -156,7 +164,7 @@ function HeaderLogoLeftPrimaryCentered(props) {
                     <ListOfLinks links={activeSecondary} enableAnnotations={enableAnnotations} />
                 </ul>
             )}
-            <div className="hidden lg:flex"><LanguageSwitcher /></div>
+            <div className="hidden lg:flex ml-auto"><LanguageSwitcher /></div>
             {(activePrimary.length > 0 || activeSecondary.length > 0) && <MobileMenu {...props} primaryLinks={activePrimary} secondaryLinks={activeSecondary} />}
         </div>
     );

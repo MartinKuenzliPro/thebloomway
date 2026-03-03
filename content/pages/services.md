@@ -2,28 +2,6 @@
 title: Leistungen
 slug: services
 sections:
-  - type: GenericSection
-    title:
-      text: Unsere Leistungen
-      color: text-dark
-      type: TitleBlock
-    subtitle: Alles was dein KMU auf Instagram braucht
-    text: >
-      Von der Strategie bis zur Umsetzung – wir begleiten dich auf dem gesamten Weg zu einem starken Instagram-Auftritt.
-    badge:
-      label: Leistungen
-      color: text-primary
-      type: Badge
-    colors: bg-light-fg-dark
-    styles:
-      self:
-        alignItems: center
-        flexDirection: col
-        padding:
-          - pt-16
-          - pl-16
-          - pb-16
-          - pr-16
   - type: FeaturedItemsSection
     title:
       text: Was wir für dich tun
@@ -32,13 +10,16 @@ sections:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Drei Kernleistungen für deinen Erfolg
+    subtitle: Unsere Kernleistungen
     items:
-      - title: Instagram Strategie
-        tagline: Schritt 1
-        subtitle: Massgeschneidert für dein KMU
-        text: >
-          Wir analysieren deine Marke, Zielgruppe und Mitbewerber und entwickeln eine individuelle Instagram-Strategie mit klaren Zielen und messbaren KPIs.
+      - title: Content Produktion
+        subtitle: Von der Idee zur Produktion
+        text: |-
+          Von der Konzeption bis zur Umsetzung erstellen wir verfeinerten Foto- und Videocontent, der auf deine Markenidentität abgestimmt ist.
+
+          Ob für saisonale Kampagnen, Produktlaunches oder kontinuierliche Sichtbarkeit – wir produzieren Visuals, die ansprechen, inspirieren und konvertieren.
+
+          Als Einzel-Produktionen oder laufende Content-Partnerschaften verfügbar.
         image:
           url: /images/tbw-29.jpeg
           altText: Instagram Strategie
@@ -57,11 +38,14 @@ sections:
             borderRadius: x-large
             flexDirection: col
         type: FeaturedItem
-      - title: Content Creation
-        tagline: Schritt 2
-        subtitle: Professioneller Content der begeistert
-        text: >
-          Wir erstellen hochwertigen Instagram-Content – Fotos, Videos, Reels, Stories und Captions – der deine Marke authentisch repräsentiert und deine Community wachsen lässt.
+      - title: Social Media Management
+        subtitle: Konsistenz. Strategie. Wirkung.
+        text: |-
+          Wir managen und führen deine Content-Strategie mit Konsistenz und Intention aus.
+
+          Unsere Leistungen umfassen Planung, Publishing, Community-Engagement und Performance-Tracking – damit deine Marke aktiv, professionell und relevant bleibt.
+
+          Konzipiert für langfristige Partnerschaften mit Fokus auf nachhaltiges Wachstum.
         image:
           url: /images/tbw-26.jpeg
           altText: Content Creation
@@ -80,11 +64,10 @@ sections:
             borderRadius: x-large
             flexDirection: col
         type: FeaturedItem
-      - title: Influencer Marketing
-        tagline: Schritt 3
-        subtitle: Die richtigen Partner für deine Marke
-        text: >
-          Wir identifizieren, kontaktieren und managen authentische Schweizer Influencer, die zu deiner Marke passen und deine Zielgruppe erreichen.
+      - title: Talent Kooperationen
+        subtitle: Authentische Markenbotschafter
+        text: >-
+          Wir verbinden Marken mit ausgewählten Content Creators für authentische und strategische Partnerschaften.
         image:
           url: /images/tbw-25.jpeg
           altText: Influencer Marketing
@@ -131,14 +114,7 @@ sections:
       type: TitleBlock
     subtitle: Erstberatung
     text: |-
-      Kontaktiere uns noch heute und erfahre, wie wir dein KMU auf Instagram zum Strahlen bringen.
-    actions:
-      - label: Beratung anfragen
-        url: /contact
-        icon: arrowRight
-        iconPosition: right
-        style: primary
-        type: Button
+      Kontaktiere uns noch heute und erfahre, wie wir deine Marke zum Strahlen bringen.
     badge:
       label: Kontakt
       color: text-primary

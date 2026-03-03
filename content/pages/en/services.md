@@ -2,28 +2,6 @@
 title: Services
 slug: /en/services
 sections:
-  - type: GenericSection
-    title:
-      text: Our Services
-      color: text-dark
-      type: TitleBlock
-    subtitle: Everything your SME needs on Instagram
-    text: >
-      From strategy to execution – we guide you every step of the way to a strong Instagram presence.
-    badge:
-      label: Services
-      color: text-primary
-      type: Badge
-    colors: bg-light-fg-dark
-    styles:
-      self:
-        alignItems: center
-        flexDirection: col
-        padding:
-          - pt-16
-          - pl-16
-          - pb-16
-          - pr-16
   - type: FeaturedItemsSection
     title:
       text: What we do for you
@@ -32,13 +10,16 @@ sections:
         self:
           textAlign: center
       type: TitleBlock
-    subtitle: Three core services for your success
+    subtitle: Our core services
     items:
-      - title: Instagram Strategy
-        tagline: Step 1
-        subtitle: Tailored for your SME
-        text: >
-          We analyse your brand, target audience and competitors and develop an individual Instagram strategy with clear goals and measurable KPIs.
+      - title: Content Production
+        subtitle: From concept to creation
+        text: |-
+          From concept to execution, we create refined photo and video content aligned with your brand identity.
+
+          Whether for seasonal campaigns, product launches or ongoing visibility, we produce visuals designed to attract, inspire and convert.
+
+          Available as one-time productions or ongoing content partnerships.
         image:
           url: /images/tbw-29.jpeg
           altText: Instagram Strategy
@@ -57,11 +38,14 @@ sections:
             borderRadius: x-large
             flexDirection: col
         type: FeaturedItem
-      - title: Content Creation
-        tagline: Step 2
-        subtitle: Professional content that inspires
-        text: >
-          We create high-quality Instagram content – photos, videos, reels, stories and captions – that authentically represents your brand and grows your community.
+      - title: Social Media Management
+        subtitle: Consistency. Strategy. Impact.
+        text: |-
+          We manage and execute your content strategy with consistency and intention.
+
+          Our services include planning, publishing, community engagement and performance tracking — ensuring your brand remains active, professional and relevant.
+
+          Designed for long-term partnerships focused on sustainable growth.
         image:
           url: /images/tbw-26.jpeg
           altText: Content Creation
@@ -80,11 +64,10 @@ sections:
             borderRadius: x-large
             flexDirection: col
         type: FeaturedItem
-      - title: Influencer Marketing
-        tagline: Step 3
-        subtitle: The right partners for your brand
-        text: >
-          We identify, contact and manage authentic Swiss influencers who match your brand and reach your target audience.
+      - title: Talent Collaborations
+        subtitle: Authentic brand partners
+        text: >-
+          We connect brands with selected content creators for authentic and strategic partnerships.
         image:
           url: /images/tbw-25.jpeg
           altText: Influencer Marketing
@@ -131,14 +114,7 @@ sections:
       type: TitleBlock
     subtitle: Initial Consultation
     text: |-
-      Contact us today and find out how we can make your SME shine on Instagram.
-    actions:
-      - label: Get in Touch
-        url: /en/contact
-        icon: arrowRight
-        iconPosition: right
-        style: primary
-        type: Button
+      Contact us today and find out how we can make your brand shine.
     badge:
       label: Contact
       color: text-primary

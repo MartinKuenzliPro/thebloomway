@@ -7,21 +7,11 @@ sections:
       text: TBW
       color: text-dark
       type: TitleBlock
-    subtitle: The Bloom Way · We Bloom It
+    subtitle: The Bloom Way
     text: >
-      A boutique creative agency specializing in talent management, content
-      creation, and social media management for brands and businesses. Based in
-      Switzerland.
+      A boutique agency specialising in content production, social media management
+      and talent collaborations for brands and businesses.
     actions:
-      - label: Get in Touch
-        altText: ''
-        url: /en/contact
-        showIcon: false
-        icon: arrowRight
-        iconPosition: right
-        style: primary
-        elementId: ''
-        type: Button
       - label: Our Services
         altText: ''
         url: /en/services
@@ -51,17 +41,106 @@ sections:
           - pl-16
           - pb-16
           - pr-16
+  - type: FeaturedItemsSection
+    badge:
+      label: Services
+      color: text-primary
+      type: Badge
+    items:
+      - title: Content Production
+        text: >-
+          From concept to execution – refined photo and video content aligned with
+          your brand identity, designed to attract, inspire and convert.
+        image:
+          url: /images/tbw-23.jpeg
+          altText: Content Creation
+          elementId: ''
+          type: ImageBlock
+          styles:
+            self:
+              borderRadius: x-large
+        actions: []
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: x-large
+            flexDirection: col
+            textAlign: center
+        type: FeaturedItem
+      - title: Social Media Management
+        text: >-
+          Planning, publishing, community engagement and performance tracking –
+          keeping your brand active, professional and relevant.
+        image:
+          url: /images/tbw-24.jpeg
+          altText: Social Media Management
+          elementId: ''
+          type: ImageBlock
+          styles:
+            self:
+              borderRadius: x-large
+        actions: []
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: x-large
+            flexDirection: col
+            textAlign: center
+        type: FeaturedItem
+      - type: FeaturedItem
+        title: Talent Management
+        text: >-
+          We connect brands with selected content creators for authentic and
+          strategic partnerships.
+        image:
+          type: ImageBlock
+          altText: Talent Management
+          elementId: ''
+          url: /images/tbw-21.jpeg
+          styles:
+            self:
+              borderRadius: x-large
+        actions: []
+        colors: bg-light-fg-dark
+        styles:
+          self:
+            padding:
+              - pt-8
+              - pl-8
+              - pb-8
+              - pr-8
+            borderRadius: x-large
+            flexDirection: col
+            textAlign: center
+    variant: three-col-grid
+    colors: bg-neutral-fg-dark
+    styles:
+      self:
+        padding:
+          - pt-16
+          - pl-8
+          - pb-16
+          - pr-8
+        justifyContent: center
+      subtitle:
+        textAlign: center
   - type: GenericSection
-    title:
-      text: About Us
-      color: text-dark
-      type: TitleBlock
-    subtitle: Boutique Content & Talent Agency · Einsiedeln, Switzerland
-    text: >
-      The Bloom Way is a boutique content and talent agency based in Switzerland.
-      We specialize in content creation, talent representation, and digital
-      presence development for brands, businesses, and selected talents.
-      Our approach is intentional, refined, and results-driven.
+    text: |-
+      Rooted in Swiss standards of precision, discretion, and quality, our approach is intentional, refined, and results driven.
+
+      Our work focuses on creating elevated, modern content that reflects each client's identity while supporting long-term growth.
+
+      We operate with professionalism, discretion, and a commitment to excellence in every collaboration. Einsiedeln, Switzerland.
     actions:
       - label: Get in touch
         url: /en/contact
@@ -87,151 +166,7 @@ sections:
           - pl-16
           - pb-16
           - pr-16
-  - type: FeaturedItemsSection
-    title:
-      text: What we do for you
-      color: text-dark
-      styles:
-        self:
-          textAlign: center
-      type: TitleBlock
-    subtitle: Our core services
-    badge:
-      label: Services
-      color: text-primary
-      type: Badge
-    items:
-      - type: FeaturedItem
-        title: Talent Management
-        text: >-
-          We represent selected talents – managing brand collaborations, hotel
-          partnerships, and curated campaigns that align with their identity and
-          elevate their presence.
-        image:
-          type: ImageBlock
-          altText: Talent Management
-          elementId: ''
-          url: /images/tbw-21.jpeg
-          styles:
-            self:
-              borderRadius: x-large
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: x-large
-            flexDirection: col
-            textAlign: center
-      - title: Content Creation
-        text: >-
-          We create high-quality photos and videos for businesses. From planning
-          to production, every piece of content is crafted to reflect the brand's
-          identity and convert audiences.
-        image:
-          url: /images/tbw-23.jpeg
-          altText: Content Creation
-          elementId: ''
-          type: ImageBlock
-          styles:
-            self:
-              borderRadius: x-large
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: x-large
-            flexDirection: col
-            textAlign: center
-        type: FeaturedItem
-      - title: Social Media Management
-        text: >-
-          We manage the complete Instagram presence of businesses – strategy,
-          content calendar, posting, and community management.
-        image:
-          url: /images/tbw-24.jpeg
-          altText: Social Media Management
-          elementId: ''
-          type: ImageBlock
-          styles:
-            self:
-              borderRadius: x-large
-        actions: []
-        colors: bg-light-fg-dark
-        styles:
-          self:
-            padding:
-              - pt-8
-              - pl-8
-              - pb-8
-              - pr-8
-            borderRadius: x-large
-            flexDirection: col
-            textAlign: center
-        type: FeaturedItem
-    variant: three-col-grid
-    colors: bg-neutral-fg-dark
-    styles:
-      self:
-        padding:
-          - pt-16
-          - pl-8
-          - pb-16
-          - pr-8
-        justifyContent: center
-      subtitle:
-        textAlign: center
-  - title:
-      text: Ready to elevate your brand?
-      color: text-dark
-      type: TitleBlock
-    subtitle: Initial Consultation
-    text: |-
-      Let's find out together how we can make your brand shine.
-      No commitment required.
-    actions:
-      - label: Get started
-        url: /en/contact
-        icon: arrowRight
-        iconPosition: right
-        style: primary
-        type: Button
-    media:
-      url: /images/tbw-25.jpeg
-      altText: Ready to elevate your brand
-      type: ImageBlock
-    badge:
-      label: Contact
-      color: text-primary
-      type: Badge
-    colors: bg-light-fg-dark
-    styles:
-      self:
-        alignItems: center
-        flexDirection: row
-        padding:
-          - pt-16
-          - pl-16
-          - pb-16
-          - pr-16
-    type: GenericSection
-  - title:
-      text: Get in touch
-      color: text-dark
-      type: TitleBlock
-    subtitle: Initial Consultation
-    text: |-
-      Let's find out together how we can make your brand shine.
-      No commitment required.
+  - text: >-
       contact@thebloomway.ch · Einsiedeln, Switzerland
     media:
       fields:
