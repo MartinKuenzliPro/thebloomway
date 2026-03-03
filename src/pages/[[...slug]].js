@@ -4,11 +4,39 @@ import { allContent } from '../utils/local-content';
 import { getComponent } from '../components/components-registry';
 import { resolveStaticProps } from '../utils/static-props-resolvers';
 import { resolveStaticPaths } from '../utils/static-paths-resolvers';
-import { seoGenerateTitle, seoGenerateMetaTags, seoGenerateMetaDescription } from '../utils/seo-utils';
+import { seoGenerateTitle, seoGenerateMetaTags, seoGenerateMetaDescription, seoGenerateOgImage } from '../utils/seo-utils';
+
+const SITE_URL = 'https://www.thebloomway.ch';
+
+const JSON_LD_ORG = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'The Bloom Way',
+    url: SITE_URL,
+    email: 'contact@thebloomway.ch',
+    logo: SITE_URL + '/images/logo_tbw.png',
+    image: SITE_URL + '/images/tbw-22.jpeg',
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Einsiedeln',
+        addressRegion: 'SZ',
+        addressCountry: 'CH'
+    },
+    founder: { '@type': 'Person', name: 'Martin Künzli' },
+    sameAs: ['https://www.instagram.com/thebloomway.ch/'],
+    serviceType: ['Talent Management', 'Content Creation', 'Social Media Management']
+};
+
+function getHreflangUrls(urlPath) {
+    const isEn = urlPath.startsWith('/en');
+    const dePath = isEn ? (urlPath === '/en' ? '/' : urlPath.replace(/^\/en/, '')) : urlPath;
+    const enPath = isEn ? urlPath : '/en' + (urlPath === '/' ? '' : urlPath);
+    return { de: SITE_URL + dePath, en: SITE_URL + enPath };
+}
 
 function Page(props) {
     const { page, site } = props;
-    const { modelName } = page.__metadata;
+    const { modelName, urlPath } = page.__metadata;
     if (!modelName) {
         throw new Error(`page has no type, page '${props.path}'`);
     }
@@ -19,6 +47,10 @@ function Page(props) {
     const title = seoGenerateTitle(page, site);
     const metaTags = seoGenerateMetaTags(page, site);
     const metaDescription = seoGenerateMetaDescription(page, site);
+    const ogImage = seoGenerateOgImage(page, site);
+    const canonicalUrl = SITE_URL + urlPath;
+    const { de: deUrl, en: enUrl } = getHreflangUrls(urlPath);
+
     return (
         <>
             <Head>
@@ -26,13 +58,28 @@ function Page(props) {
                 {metaDescription && <meta name="description" content={metaDescription} />}
                 {metaTags.map((metaTag) => {
                     if (metaTag.format === 'property') {
-                        // OpenGraph meta tags (og:*) should be have the format <meta property="og:…" content="…">
                         return <meta key={metaTag.property} property={metaTag.property} content={metaTag.content} />;
                     }
                     return <meta key={metaTag.property} name={metaTag.property} content={metaTag.content} />;
                 })}
+                {metaDescription && <meta property="og:description" content={metaDescription} />}
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="The Bloom Way" />
+                <meta name="twitter:card" content="summary_large_image" />
+                {title && <meta name="twitter:title" content={title} />}
+                {metaDescription && <meta name="twitter:description" content={metaDescription} />}
+                {ogImage && <meta name="twitter:image" content={ogImage} />}
+                <link rel="canonical" href={canonicalUrl} />
+                <link rel="alternate" hrefLang="de" href={deUrl} />
+                <link rel="alternate" hrefLang="en" href={enUrl} />
+                <link rel="alternate" hrefLang="x-default" href={deUrl} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 {site.favicon && <link rel="icon" href={site.favicon} />}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_ORG) }}
+                />
             </Head>
             <PageLayout page={page} site={site} />
         </>

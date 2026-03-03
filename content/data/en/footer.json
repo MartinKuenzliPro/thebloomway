@@ -4,12 +4,12 @@
         "altText": "The Bloom Way Logo",
         "type": "ImageBlock"
     },
-    "text": "Instagram Marketing Agency für Schweizer KMUs. Mehr Reichweite, mehr Kunden, nachhaltiges Wachstum.",
+    "text": "Instagram Marketing Agency for Swiss SMEs. More reach, more clients, sustainable growth.",
     "primaryLinks": {
-        "title": "Leistungen",
+        "title": "Services",
         "links": [
             {
-                "label": "Instagram Strategie",
+                "label": "Instagram Strategy",
                 "url": "/services",
                 "icon": "arrowRight",
                 "iconPosition": "right",
@@ -36,10 +36,10 @@
         "type": "FooterLinksGroup"
     },
     "secondaryLinks": {
-        "title": "Unternehmen",
+        "title": "Company",
         "links": [
             {
-                "label": "Kontakt",
+                "label": "Contact",
                 "url": "/contact",
                 "icon": "arrowRight",
                 "iconPosition": "right",
@@ -57,7 +57,7 @@
             "type": "Social"
         },
         {
-            "altText": "E-Mail",
+            "altText": "Email",
             "url": "mailto:contact@thebloomway.ch",
             "icon": "mail",
             "type": "Social"
@@ -65,23 +65,23 @@
     ],
     "legalLinks": [
         {
-            "label": "Impressum",
-            "url": "/impressum",
+            "label": "Legal Notice",
+            "url": "/en/impressum",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
             "type": "Link"
         },
         {
-            "label": "AGB",
-            "url": "/agb",
+            "label": "Terms & Conditions",
+            "url": "/en/agb",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",
             "type": "Link"
         }
     ],
-    "copyrightText": "© 2025 The Bloom Way. Alle Rechte vorbehalten.",
+    "copyrightText": "© 2025 The Bloom Way. All rights reserved.",
     "colors": "bg-dark-fg-light",
     "type": "Footer"
 }
