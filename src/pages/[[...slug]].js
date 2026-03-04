@@ -5,25 +5,26 @@ import { getComponent } from '../components/components-registry';
 import { resolveStaticProps } from '../utils/static-props-resolvers';
 import { resolveStaticPaths } from '../utils/static-paths-resolvers';
 import { seoGenerateTitle, seoGenerateMetaTags, seoGenerateMetaDescription, seoGenerateOgImage } from '../utils/seo-utils';
+import { SITE_CONFIG } from '../utils/site-config';
 
-const SITE_URL = 'https://www.thebloomway.ch';
+const SITE_URL = SITE_CONFIG.siteUrl;
 
 const JSON_LD_ORG = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'The Bloom Way',
+    name: SITE_CONFIG.companyName,
     url: SITE_URL,
-    email: 'contact@thebloomway.ch',
-    logo: SITE_URL + '/images/logo_tbw.png',
-    image: SITE_URL + '/images/tbw-22.jpeg',
+    email: SITE_CONFIG.contactEmail,
+    logo: SITE_URL + SITE_CONFIG.logoUrl,
+    image: SITE_URL + SITE_CONFIG.heroImageUrl,
     address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Einsiedeln',
-        addressRegion: 'SZ',
-        addressCountry: 'CH'
+        addressLocality: SITE_CONFIG.addressLocality,
+        addressRegion: SITE_CONFIG.addressRegion,
+        addressCountry: SITE_CONFIG.addressCountry
     },
-    founder: { '@type': 'Person', name: 'Martin Künzli' },
-    sameAs: ['https://www.instagram.com/thebloomway.ch/'],
+    founder: { '@type': 'Person', name: SITE_CONFIG.founderName },
+    sameAs: [SITE_CONFIG.instagramUrl],
     serviceType: ['Talent Management', 'Content Creation', 'Social Media Management']
 };
 
