@@ -65,16 +65,8 @@
     ],
     "legalLinks": [
         {
-            "label": "Legal Notice",
+            "label": "Legal Notice & Privacy",
             "url": "/en/impressum",
-            "icon": "arrowRight",
-            "iconPosition": "right",
-            "style": "secondary",
-            "type": "Link"
-        },
-        {
-            "label": "Privacy Policy",
-            "url": "/en/privacy",
             "icon": "arrowRight",
             "iconPosition": "right",
             "style": "secondary",

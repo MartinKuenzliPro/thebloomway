@@ -35,10 +35,10 @@ function LanguageSwitcher() {
     const switchLanguage = () => {
         if (isEn) {
             const dePath = router.asPath.replace(/^\/en/, '') || '/';
-            router.replace(dePath);
+            router.replace(dePath, undefined, { scroll: false });
         } else {
             const enPath = '/en' + (router.asPath === '/' ? '' : router.asPath);
-            router.replace(enPath);
+            router.replace(enPath, undefined, { scroll: false });
         }
     };
 
