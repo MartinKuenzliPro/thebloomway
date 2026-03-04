@@ -73,6 +73,14 @@
             "type": "Link"
         },
         {
+            "label": "Datenschutz",
+            "url": "/datenschutz",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        },
+        {
             "label": "AGB",
             "url": "/agb",
             "icon": "arrowRight",

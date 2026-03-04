@@ -73,6 +73,14 @@
             "type": "Link"
         },
         {
+            "label": "Privacy Policy",
+            "url": "/en/privacy",
+            "icon": "arrowRight",
+            "iconPosition": "right",
+            "style": "secondary",
+            "type": "Link"
+        },
+        {
             "label": "Terms & Conditions",
             "url": "/en/agb",
             "icon": "arrowRight",
