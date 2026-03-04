@@ -7,18 +7,42 @@ import SubmitButtonFormControl from './SubmitButtonFormControl';
 
 export default function FormBlock(props) {
     const formRef = React.createRef<HTMLFormElement>();
+    const [status, setStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
     const { fields = [], elementId, submitButton, className, styles = {}, 'data-sb-field-path': fieldPath } = props;
 
     if (fields.length === 0) {
         return null;
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
+        setStatus('idle');
 
         const data = new FormData(formRef.current);
-        const value = Object.fromEntries(data.entries());
-        alert(`Form data: ${JSON.stringify(value)}`);
+        try {
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(data as any).toString()
+            });
+            if (response.ok) {
+                setStatus('success');
+                formRef.current.reset();
+            } else {
+                setStatus('error');
+            }
+        } catch {
+            setStatus('error');
+        }
+    }
+
+    if (status === 'success') {
+        return (
+            <div className="py-8 text-left">
+                <p className="text-lg font-medium">Nachricht gesendet!</p>
+                <p className="mt-1 opacity-70">Wir melden uns bald bei dir.</p>
+            </div>
+        );
     }
 
     return (
@@ -41,6 +65,7 @@ export default function FormBlock(props) {
             )}
             name={elementId}
             id={elementId}
+            data-netlify="true"
             onSubmit={handleSubmit}
             ref={formRef}
             data-sb-field-path= {fieldPath}
@@ -62,6 +87,9 @@ export default function FormBlock(props) {
                     return <FormControl key={index} {...field} {...(fieldPath && { 'data-sb-field-path': `.${index}` })} />;
                 })}
             </div>
+            {status === 'error' && (
+                <p className="mt-4 opacity-70">Fehler beim Senden. Bitte versuche es erneut.</p>
+            )}
             {submitButton && (
                 <div className={classNames('mt-8', 'flex', mapStyles({ justifyContent: styles?.self?.justifyContent ?? 'flex-start' }))}>
                     <SubmitButtonFormControl {...submitButton} {...(fieldPath && { 'data-sb-field-path': '.submitButton' })} />
