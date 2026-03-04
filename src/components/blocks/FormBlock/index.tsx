@@ -13,12 +13,21 @@ export default function FormBlock(props) {
         return null;
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
 
         const data = new FormData(formRef.current);
-        const value = Object.fromEntries(data.entries());
-        alert(`Form data: ${JSON.stringify(value)}`);
+        try {
+            await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(data as any).toString()
+            });
+            alert('Nachricht gesendet! Wir melden uns bald bei dir.');
+            formRef.current.reset();
+        } catch {
+            alert('Fehler beim Senden. Bitte versuche es erneut.');
+        }
     }
 
     return (
@@ -41,6 +50,7 @@ export default function FormBlock(props) {
             )}
             name={elementId}
             id={elementId}
+            data-netlify="true"
             onSubmit={handleSubmit}
             ref={formRef}
             data-sb-field-path= {fieldPath}
