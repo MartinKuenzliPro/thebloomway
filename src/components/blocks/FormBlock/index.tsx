@@ -20,7 +20,7 @@ export default function FormBlock(props) {
 
         const data = new FormData(formRef.current);
         try {
-            const response = await fetch('/', {
+            const response = await fetch('/.netlify/functions/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(data as any).toString()
